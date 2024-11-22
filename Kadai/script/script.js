@@ -10,11 +10,18 @@ new Vue({
   methods: {
     validateName() {
       //名前は5文字以上で入力　5文字以下ならエラーメッセージ表示
+      if(this.name.length >= 5) {
+        this.isValidName = true;
+        this.errorMessage = '';
+      } else {
+        this.isValidName = false;
+        this.errorMessage = '名前は5文字以上で入力してください。';
+      }
 
     },
     drawFortune() {
       // バリデーションが成功した場合のみランダムな運勢を生成
-      if () {
+      if (this.isValidName = true) {
         //0から100までのランダムな数値を取得する
         const randomNumber = Math.round(Math.random() * 100);
         //数値が80以上の場合（大吉）
@@ -31,4 +38,4 @@ new Vue({
       }
     }
   }
-});
+);
